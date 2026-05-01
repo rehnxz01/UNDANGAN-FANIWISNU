@@ -87,7 +87,7 @@
 
     <!-- Audio Element (Ganti URL mp3 jika ingin lagu lain) -->
     <audio id="weddingMusic" loop>
-        <source src="Denny Caknan Feat Bella Bonita - SINARENGAN (Official Music Video) (mp3cut.net).mp3" type="audio/mpeg">
+        <source src="c:\Users\DELL\Downloads\Denny Caknan Feat Bella Bonita - SINARENGAN (Official Music Video) (mp3cut.net).mp3" type="audio/mpeg">
     </audio>
 
     <img src="https://i.ibb.co/mR70f80/flower-corner.png" class="corner-ornament top-right" alt="deco">
@@ -103,6 +103,13 @@
                 <i class="fa fa-pagelines divider-icon"></i>
                 <div class="divider-line"></div>
             </div>
+
+            <!-- Penambahan Otomatis Nama Tamu (Sesuai gambar referensi) -->
+            <div class="mb-8 animate-initial" style="animation-delay: 1.5s">
+                <p class="text-[12px] text-dark/60 mb-2 font-medium">Kepada Yth.</p>
+                <h2 id="guest-name" class="font-serif text-lg font-bold text-dark">Tamu Undangan</h2>
+            </div>
+
             <p class="text-sm tracking-widest mb-10 font-light text-dark/60 animate-initial" style="animation-delay: 1.8s">SELASA, 09 JUNI 2026</p>
             <button onclick="bukaUndangan()" class="bg-primary text-white hover:scale-105 transition-transform px-10 py-3 rounded-full shadow-lg animate-initial" style="animation-delay: 1.8s">
                 Buka Undangan <i class="fa fa-envelope-o ml-2"></i>
@@ -111,8 +118,6 @@
     </section>
 
     <div id="content" class="hidden relative z-10">
-        <!-- (Konten Halaman 2 Tetap Sama Seperti Sebelumnya) -->
-        
         <!-- QUOTE & OPENING -->
         <section class="py-20 px-8 relative overflow-hidden text-center">
             <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-20 bg-gradient-to-b from-primary/50 to-transparent"></div>
@@ -301,6 +306,13 @@
     </button>
 
     <script>
+        // Logika Pengambilan Nama Tamu dari URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const to = urlParams.get('to');
+        if (to) {
+            document.getElementById('guest-name').innerText = to;
+        }
+
         const music = document.getElementById('weddingMusic');
         const musicIcon = document.getElementById('musicIcon');
         const musicBtn = document.getElementById('musicBtn');
